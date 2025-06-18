@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethical Hacker Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations and effects */
+        .glow-text {
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+        }
+        .terminal-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: #00ff00;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .hacker-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.3);
+        }
+        .code-typing {
+            border-right: 2px solid #00ff00;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00ff00; }
+        }
+        .matrix-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-black text-green-400 font-mono">
+    <!-- Matrix background effect -->
+    <canvas id="matrix" class="matrix-bg"></canvas>
+
+    <!-- Navigation -->
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center border-b border-green-500">
+        <div class="text-xl font-bold glow-text">root@hacker:~$</div>
+        <div class="hidden md:flex space-x-8">
+            <a href="#about" class="hover:text-green-300 transition">About</a>
+            <a href="#skills" class="hover:text-green-300 transition">Skills</a>
+            <a href="#projects" class="hover:text-green-300 transition">Projects</a>
+            <a href="#contact" class="hover:text-green-300 transition">Contact</a>
+        </div>
+        <button class="md:hidden text-green-400">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto px-6 py-20 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 glow-text">
+                <span class="code-typing">Hello, I'm <span class="text-white">Sai</span></span>
+            </h1>
+            <h2 class="text-2xl md:text-3xl mb-8 glow-text">Ethical Hacker & Security Researcher</h2>
+            <p class="text-lg mb-10 text-green-300 max-w-2xl mx-auto">
+                I identify vulnerabilities before the bad actors do. Protecting digital assets through ethical hacking and security assessments.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#contact" class="bg-green-600 hover:bg-green-700 text-black font-bold py-3 px-6 rounded transition">
+                    Hire Me
+                </a>
+                <a href="#projects" class="border border-green-500 hover:bg-green-900 text-green-400 font-bold py-3 px-6 rounded transition">
+                    My Work
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container mx-auto px-6 py-16">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center glow-text">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <div class="md:w-1/3 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 bg-green-900 rounded-full opacity-20 absolute -inset-1 blur-lg"></div>
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Hacker Profile" 
+                             class="w-64 h-64 rounded-full object-cover border-4 border-green-500 relative">
+                    </div>
+                </div>
+                <div class="md:w-2/3">
+                    <p class="text-lg mb-6">
+                        With over 8 years of experience in cybersecurity, I specialize in penetration testing, vulnerability assessment, and security consulting. My mission is to help organizations strengthen their defenses against cyber threats.
+                    </p>
+                    <p class="text-lg mb-6">
+                        Certified Ethical Hacker (CEH) and Offensive Security Certified Professional (OSCP) with a passion for reverse engineering and exploit development. I believe in responsible disclosure and ethical hacking practices.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-shield-alt text-green-500 mr-3"></i>
+                            <span>Penetration Testing</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-lock text-green-500 mr-3"></i>
+                            <span>Security Audits</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-bug text-green-500 mr-3"></i>
+                            <span>Vulnerability Research</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-code text-green-500 mr-3"></i>
+                            <span>Secure Coding</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="bg-gray-900 py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center glow-text">My Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Skill Cards -->
+                <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300">
+                    <div class="text-green-500 text-4xl mb-4">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Penetration Testing</h3>
+                    <p class="text-green-300">Comprehensive security assessments to identify vulnerabilities.</p>
+                </div>
+                
+                <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300">
+                    <div class="text-green-500 text-4xl mb-4">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Network Security</h3>
+                    <p class="text-green-300">Securing network infrastructure from intrusions.</p>
+                </div>
+                
+                <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300">
+                    <div class="text-green-500 text-4xl mb-4">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Mobile Security</h3>
+                    <p class="text-green-300">Assessing iOS and Android applications for vulnerabilities.</p>
+                </div>
+                
+                <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300">
+                    <div class="text-green-500 text-4xl mb-4">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Web App Security</h3>
+                    <p class="text-green-300">Identifying and mitigating web application vulnerabilities.</p>
+                </div>
+                
+                <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300">
+                    <div class="text-green-500 text-4xl mb-4">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Social Engineering</h3>
+                    <p class="text-green-300">Testing human vulnerabilities in security systems.</p>
+                </div>
+                
+                <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300">
+                    <div class="text-green-500 text-4xl mb-4">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Database Security</h3>
+                    <p class="text-green-300">Securing sensitive data storage systems.</p>
+                </div>
+                
+                <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300">
+                    <div class="text-green-500 text-4xl mb-4">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Cloud Security</h3>
+                    <p class="text-green-300">Securing AWS, Azure, and GCP environments.</p>
+                </div>
+                
+                <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300">
+                    <div class="text-green-500 text-4xl mb-4">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Malware Analysis</h3>
+                    <p class="text-green-300">Reverse engineering malicious software.</p>
+                </div>
+            </div>
+            
+            <!-- Tools Section -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold mb-8 text-center glow-text">Tools & Technologies</h3>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="flex items-center bg-gray-800 px-4 py-2 rounded">
+                        <i class="fab fa-linux text-green-500 mr-2 text-xl"></i>
+                        <span>Kali Linux</span>
+                    </div>
+                    <div class="flex items-center bg-gray-800 px-4 py-2 rounded">
+                        <i class="fas fa-network-wired text-green-500 mr-2 text-xl"></i>
+                        <span>Metasploit</span>
+                    </div>
+                    <div class="flex items-center bg-gray-800 px-4 py-2 rounded">
+                        <i class="fas fa-wifi text-green-500 mr-2 text-xl"></i>
+                        <span>Wireshark</span>
+                    </div>
+                    <div class="flex items-center bg-gray-800 px-4 py-2 rounded">
+                        <i class="fas fa-bug text-green-500 mr-2 text-xl"></i>
+                        <span>Burp Suite</span>
+                    </div>
+                    <div class="flex items-center bg-gray-800 px-4 py-2 rounded">
+                        <i class="fas fa-code text-green-500 mr-2 text-xl"></i>
+                        <span>Nmap</span>
+                    </div>
+                    <div class="flex items-center bg-gray-800 px-4 py-2 rounded">
+                        <i class="fas fa-shield-alt text-green-500 mr-2 text-xl"></i>
+                        <span>OWASP ZAP</span>
+                    </div>
+                    <div class="flex items-center bg-gray-800 px-4 py-2 rounded">
+                        <i class="fas fa-terminal text-green-500 mr-2 text-xl"></i>
+                        <span>John the Ripper</span>
+                    </div>
+                    <div class="flex items-center bg-gray-800 px-4 py-2 rounded">
+                        <i class="fas fa-lock text-green-500 mr-2 text-xl"></i>
+                        <span>Hashcat</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl font-bold mb-12 text-center glow-text">My Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300 h-full flex flex-col">
+                <div class="mb-4 overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Bank Security Audit" 
+                         class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                <h3 class="text-xl font-bold mb-2">Bank Security Audit</h3>
+                <p class="text-green-300 mb-4">Conducted a comprehensive penetration test for a major banking institution, identifying critical vulnerabilities in their online banking platform.</p>
+                <div class="mt-auto">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">Penetration Testing</span>
+                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">Web Security</span>
+                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">Financial Sector</span>
+                    </div>
+                    <a href="#" class="text-green-500 hover:text-green-300 font-bold flex items-center">
+                        Read Case Study <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300 h-full flex flex-col">
+                <div class="mb-4 overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1517430816045-df4b7acfb8b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="IoT Security Research" 
+                         class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                <h3 class="text-xl font-bold mb-2">IoT Security Research</h3>
+                <p class="text-green-300 mb-4">Discovered zero-day vulnerabilities in popular smart home devices, leading to vendor patches and improved security standards.</p>
+                <div class="mt-auto">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">IoT Security</span>
+                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">Vulnerability Research</span>
+                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">Hardware Hacking</span>
+                    </div>
+                    <a href="#" class="text-green-500 hover:text-green-300 font-bold flex items-center">
+                        Read Case Study <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300 h-full flex flex-col">
+                <div class="mb-4 overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Red Team Exercise" 
+                         class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                <h3 class="text-xl font-bold mb-2">Enterprise Red Team Exercise</h3>
+                <p class="text-green-300 mb-4">Led a simulated attack against a Fortune 500 company, bypassing security controls and gaining access to sensitive data.</p>
+                <div class="mt-auto">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">Red Teaming</span>
+                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">Social Engineering</span>
+                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">Enterprise Security</span>
+                    </div>
+                    <a href="#" class="text-green-500 hover:text-green-300 font-bold flex items-center">
+                        Read Case Study <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="#" class="border border-green-500 hover:bg-green-900 text-green-400 font-bold py-3 px-6 rounded transition inline-flex items-center">
+                <i class="fas fa-folder-open mr-2"></i> View All Projects
+            </a>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="bg-gray-900 py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center glow-text">Certifications</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="flex flex-col items-center p-6 border border-green-500 rounded-lg hover:bg-green-900 transition">
+                    <img src="https://www.eccouncil.org/wp-content/uploads/2022/05/CEH-Badge.png" alt="CEH" class="h-24 mb-4">
+                    <h3 class="text-lg font-bold text-center">Certified Ethical Hacker</h3>
+                </div>
+                <div class="flex flex-col items-center p-6 border border-green-500 rounded-lg hover:bg-green-900 transition">
+                    <img src="https://www.offensive-security.com/wp-content/uploads/2019/04/oscp-certified-offensive-security.png" alt="OSCP" class="h-24 mb-4">
+                    <h3 class="text-lg font-bold text-center">OSCP</h3>
+                </div>
+                <div class="flex flex-col items-center p-6 border border-green-500 rounded-lg hover:bg-green-900 transition">
+                    <img src="https://www.comptia.org/images/default-source/ci-mages/comptia-security-ce-certification.png" alt="Security+" class="h-24 mb-4">
+                    <h3 class="text-lg font-bold text-center">CompTIA Security+</h3>
+                </div>
+                <div class="flex flex-col items-center p-6 border border-green-500 rounded-lg hover:bg-green-900 transition">
+                    <img src="https://www.giac.org/img/gpen-certification.png" alt="GPEN" class="h-24 mb-4">
+                    <h3 class="text-lg font-bold text-center">GIAC Penetration Tester</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl font-bold mb-12 text-center glow-text">Get In Touch</h2>
+        <div class="max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-green-500 mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <p class="text-green-300">contact@ethicalhacker.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt text-green-500 mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold">Phone</h4>
+                                <p class="text-green-300">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-green-500 mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold">Location</h4>
+                                <p class="text-green-300">San Francisco, CA</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mt-12 mb-6">Follow Me</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full border border-green-500 flex items-center justify-center hover:bg-green-900 transition">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-green-500 flex items-center justify-center hover:bg-green-900 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-green-500 flex items-center justify-center hover:bg-green-900 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-green-500 flex items-center justify-center hover:bg-green-900 transition">
+                            <i class="fab fa-hacker-news"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full bg-black border border-green-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2">Your Email</label>
+                            <input type="email" id="email" class="w-full bg-black border border-green-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full bg-black border border-green-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full bg-black border border-green-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-green-600 hover:bg-green-700 text-black font-bold py-3 px-6 rounded transition w-full">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 border-t border-green-500">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-lg font-bold mb-4 md:mb-0 glow-text">root@hacker:~$</div>
+                <div class="text-green-300">
+                    &copy; 2023 Ethical Hacker Portfolio. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Matrix Animation Script -->
+    <script>
+        // Matrix background effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        const symbols = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
+        
+        const alphabet = katakana + latin + nums + symbols;
+        
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        
+        const rainDrops = [];
+        
+        for (let x = 0; x < columns; x++) {
+            rainDrops[x] = 1;
+        }
+        
+        const draw = () => {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#00FF00';
+            ctx.font = fontSize + 'px monospace';
+            
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+                
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        };
+        
+        setInterval(draw, 30);
+        
+        // Responsive adjustments
+        window.addEventListener('resize', () => {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        });
+        
+        // Typewriter effect for terminal cursor
+        const phrases = [
+            "Penetration Tester",
+            "Security Researcher",
+            "Ethical Hacker",
+            "Bug Bounty Hunter"
+        ];
+        let currentPhrase = 0;
+        let currentChar = 0;
+        let isDeleting = false;
+        const terminalText = document.querySelector('.code-typing');
+        
+        function type() {
+            const fullTxt = phrases[currentPhrase];
+            
+            if (isDeleting) {
+                currentChar--;
+                terminalText.textContent = fullTxt.substring(0, currentChar);
+            } else {
+                currentChar++;
+                terminalText.textContent = fullTxt.substring(0, currentChar);
+            }
+            
+            if (!isDeleting && currentChar === fullTxt.length) {
+                isDeleting = true;
+                setTimeout(type, 1000);
+            } else if (isDeleting && currentChar === 0) {
+                isDeleting = false;
+                currentPhrase = (currentPhrase + 1) % phrases.length;
+                setTimeout(type, 500);
+            } else {
+                setTimeout(type, isDeleting ? 50 : 100);
+            }
+        }
+        
+        // Start the typing effect
+        setTimeout(type, 1000);
+    </script>
+</body>
+</html>
