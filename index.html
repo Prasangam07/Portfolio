@@ -3,534 +3,535 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethical Hacker -Prasangam</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Prasangam Pathak | Ethical Hacker</title>
     <style>
-        /* Custom CSS for animations and effects */
-        .glow-text {
-            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --success: #27ae60;
+            --bg: #ffffff;
+            --text: #333333;
+            --card-bg: #ffffff;
         }
-        .terminal-cursor {
+        
+        [data-theme="dark"] {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --light: #1a252f;
+            --dark: #ecf0f1;
+            --success: #2ecc71;
+            --bg: #121212;
+            --text: #f5f5f5;
+            --card-bg: #1e1e1e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+            background-color: var(--bg);
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-bottom: 1.5rem;
+            animation: fadeIn 1s ease;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease;
+        }
+
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            animation: fadeIn 1.5s ease;
+        }
+
+        h2 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            position: relative;
             display: inline-block;
-            width: 10px;
-            height: 20px;
-            background: #00ff00;
-            animation: blink 1s infinite;
+            left: 50%;
+            transform: translateX(-50%);
         }
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        .hacker-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.3);
-        }
-        .code-typing {
-            border-right: 2px solid #00ff00;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-        }
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #00ff00; }
-        }
-        .matrix-bg {
+
+        h2::after {
+            content: '';
             position: absolute;
-            top: 0;
+            width: 50%;
+            height: 3px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 25%;
+            border-radius: 3px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--secondary);
+        }
+
+        .certifications, .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .cert-item, .project-item {
+            flex: 1 1 300px;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .cert-item:hover, .project-item:hover {
+            transform: scale(1.03);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-resume {
+            background: var(--success);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: var(--primary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        /* Dark Mode Toggle */
+        .theme-switch-wrapper {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 24px;
+            position: relative;
+            width: 50px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
             left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.1;
-            overflow: hidden;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            background-color: #fff;
+            bottom: 4px;
+            content: "";
+            height: 16px;
+            left: 4px;
+            position: absolute;
+            transition: .4s;
+            width: 16px;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--secondary);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Hire Me Button */
+        .hire-me {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--success);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 99;
+            animation: pulse 2s infinite;
+            transition: all 0.3s ease;
+        }
+
+        .hire-me:hover {
+            transform: scale(1.1);
+            animation: none;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(46, 204, 113, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-switch-wrapper {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .hire-me {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 0.8rem;
+            }
+
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
         }
     </style>
 </head>
-<body class="bg-black text-green-400 font-mono">
-    <!-- Matrix background effect -->
-    <canvas id="matrix" class="matrix-bg"></canvas>
-
-    <!-- Navigation -->
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center border-b border-green-500">
-        <div class="text-xl font-bold glow-text">root@hacker:~$</div>
-        <div class="hidden md:flex space-x-8">
-            <a href="#about" class="hover:text-green-300 transition">About</a>
-            <a href="#skills" class="hover:text-green-300 transition">Skills</a>
-            <a href="#projects" class="hover:text-green-300 transition">Projects</a>
-            <a href="#contact" class="hover:text-green-300 transition">Contact</a>
-        </div>
-        <button class="md:hidden text-green-400">
-            <i class="fas fa-bars text-2xl"></i>
-        </button>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="container mx-auto px-6 py-20 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 glow-text">
-                <span class="code-typing">Hello, I'm <span class="text-white">Prasangam</span></span>
-            </h1>
-            <h2 class="text-2xl md:text-3xl mb-8 glow-text">Ethical Hacker & Security Researcher</h2>
-            <p class="text-lg mb-10 text-green-300 max-w-2xl mx-auto">
-                I identify vulnerabilities before the bad actors do. Protecting digital assets through ethical hacking and security assessments.
-            </p>
-            <div class="flex justify-center space-x-4">
-                <a href="#contact" class="bg-green-600 hover:bg-green-700 text-black font-bold py-3 px-6 rounded transition">
-                    Hire Me
-                </a>
-                <a href="#projects" class="border border-green-500 hover:bg-green-900 text-green-400 font-bold py-3 px-6 rounded transition">
-                    My Work
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="container mx-auto px-6 py-16">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center glow-text">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center gap-10">
-                <div class="md:w-1/3 flex justify-center">
-                    <div class="relative">
-                        <div class="w-64 h-64 bg-green-900 rounded-full opacity-20 absolute -inset-1 blur-lg"></div>
-                        <img src="https://scontent.fbhr4-1.fna.fbcdn.net/v/t39.30808-6/505748689_1961656111244765_5895642541975437550_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHG0KE3gOM_ebRN0xmiXSe3doM-oCDxn4p2gz6gIPGfitCXOpo8EBLVRYd7kT9fM-GQHl0rUaqmagnMHvLrwjEA&_nc_ohc=OuC3qhLm_EIQ7kNvwFX9OQ2&_nc_oc=AdmRYcJsWkY1vaWmAL0Kv3xpqErLMXDt4L-LZcmiUr3IK2WUeSXkXVMIF6ySxSlhHGNmW9Zr7sYJ4Cxuz5mIJyaK&_nc_zt=23&_nc_ht=scontent.fbhr4-1.fna&_nc_gid=BEwoKiKbfwihf1dJCYee_Q&oh=00_AfM7nYcElxHxuIR9fhQ0qJ7qFJcMPsqpOT9ZvMTwesZjzg&oe=6858D330" 
-                             alt="Hacker Profile" 
-                             class="w-64 h-64 rounded-full object-cover border-4 border-green-500 relative">
-                    </div>
-                </div>
-                <div class="md:w-2/3">
-                    <p class="text-lg mb-6">
-                        With over 8 years of experience in cybersecurity, I specialize in penetration testing, vulnerability assessment, and security consulting. My mission is to help organizations strengthen their defenses against cyber threats.
-                    </p>
-                    <p class="text-lg mb-6">
-                        Certified Ethical Hacker (CEH) and Offensive Security Certified Professional (OSCP) with a passion for reverse engineering and exploit development. I believe in responsible disclosure and ethical hacking practices.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="flex items-center">
-                            <i class="fas fa-shield-alt text-green-500 mr-3"></i>
-                            <span>Penetration Testing</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-lock text-green-500 mr-3"></i>
-                            <span>Security Audits</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-bug text-green-500 mr-3"></i>
-                            <span>Vulnerability Research</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-code text-green-500 mr-3"></i>
-                            <span>Secure Coding</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="bg-gray-900 py-16">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center glow-text">My Skills</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Skill Cards -->
-                <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300">
-                    <div class="text-green-500 text-4xl mb-4">
-                        <i class="fas fa-terminal"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Penetration Testing</h3>
-                    <p class="text-green-300">Comprehensive security assessments to identify vulnerabilities.</p>
-                </div>
-                
-                <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300">
-                    <div class="text-green-500 text-4xl mb-4">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Network Security</h3>
-                    <p class="text-green-300">Securing network infrastructure from intrusions.</p>
-                </div>
-                
-                <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300">
-                    <div class="text-green-500 text-4xl mb-4">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Mobile Security</h3>
-                    <p class="text-green-300">Assessing iOS and Android applications for vulnerabilities.</p>
-                </div>
-                
-                <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300">
-                    <div class="text-green-500 text-4xl mb-4">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Web App Security</h3>
-                    <p class="text-green-300">Identifying and mitigating web application vulnerabilities.</p>
-                </div>
-                
-                <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300">
-                    <div class="text-green-500 text-4xl mb-4">
-                        <i class="fas fa-user-secret"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Social Engineering</h3>
-                    <p class="text-green-300">Testing human vulnerabilities in security systems.</p>
-                </div>
-                
-                <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300">
-                    <div class="text-green-500 text-4xl mb-4">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Database Security</h3>
-                    <p class="text-green-300">Securing sensitive data storage systems.</p>
-                </div>
-                
-                <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300">
-                    <div class="text-green-500 text-4xl mb-4">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Cloud Security</h3>
-                    <p class="text-green-300">Securing AWS, Azure, and GCP environments.</p>
-                </div>
-                
-                <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300">
-                    <div class="text-green-500 text-4xl mb-4">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Malware Analysis</h3>
-                    <p class="text-green-300">Reverse engineering malicious software.</p>
-                </div>
-            </div>
-            
-            <!-- Tools Section -->
-            <div class="mt-16">
-                <h3 class="text-2xl font-bold mb-8 text-center glow-text">Tools & Technologies</h3>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <div class="flex items-center bg-gray-800 px-4 py-2 rounded">
-                        <i class="fab fa-linux text-green-500 mr-2 text-xl"></i>
-                        <span>Kali Linux</span>
-                    </div>
-                    <div class="flex items-center bg-gray-800 px-4 py-2 rounded">
-                        <i class="fas fa-network-wired text-green-500 mr-2 text-xl"></i>
-                        <span>Metasploit</span>
-                    </div>
-                    <div class="flex items-center bg-gray-800 px-4 py-2 rounded">
-                        <i class="fas fa-wifi text-green-500 mr-2 text-xl"></i>
-                        <span>Wireshark</span>
-                    </div>
-                    <div class="flex items-center bg-gray-800 px-4 py-2 rounded">
-                        <i class="fas fa-bug text-green-500 mr-2 text-xl"></i>
-                        <span>Burp Suite</span>
-                    </div>
-                    <div class="flex items-center bg-gray-800 px-4 py-2 rounded">
-                        <i class="fas fa-code text-green-500 mr-2 text-xl"></i>
-                        <span>Nmap</span>
-                    </div>
-                    <div class="flex items-center bg-gray-800 px-4 py-2 rounded">
-                        <i class="fas fa-shield-alt text-green-500 mr-2 text-xl"></i>
-                        <span>OWASP ZAP</span>
-                    </div>
-                    <div class="flex items-center bg-gray-800 px-4 py-2 rounded">
-                        <i class="fas fa-terminal text-green-500 mr-2 text-xl"></i>
-                        <span>John the Ripper</span>
-                    </div>
-                    <div class="flex items-center bg-gray-800 px-4 py-2 rounded">
-                        <i class="fas fa-lock text-green-500 mr-2 text-xl"></i>
-                        <span>Hashcat</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="container mx-auto px-6 py-16">
-        <h2 class="text-3xl font-bold mb-12 text-center glow-text">My Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Project 1 -->
-            <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300 h-full flex flex-col">
-                <div class="mb-4 overflow-hidden rounded-lg">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="Bank Security Audit" 
-                         class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <h3 class="text-xl font-bold mb-2">Bank Security Audit</h3>
-                <p class="text-green-300 mb-4">Conducted a comprehensive penetration test for a major banking institution, identifying critical vulnerabilities in their online banking platform.</p>
-                <div class="mt-auto">
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">Penetration Testing</span>
-                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">Web Security</span>
-                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">Financial Sector</span>
-                    </div>
-                    <a href="#" class="text-green-500 hover:text-green-300 font-bold flex items-center">
-                        Read Case Study <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Project 2 -->
-            <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300 h-full flex flex-col">
-                <div class="mb-4 overflow-hidden rounded-lg">
-                    <img src="https://images.unsplash.com/photo-1517430816045-df4b7acfb8b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="IoT Security Research" 
-                         class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <h3 class="text-xl font-bold mb-2">IoT Security Research</h3>
-                <p class="text-green-300 mb-4">Discovered zero-day vulnerabilities in popular smart home devices, leading to vendor patches and improved security standards.</p>
-                <div class="mt-auto">
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">IoT Security</span>
-                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">Vulnerability Research</span>
-                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">Hardware Hacking</span>
-                    </div>
-                    <a href="#" class="text-green-500 hover:text-green-300 font-bold flex items-center">
-                        Read Case Study <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Project 3 -->
-            <div class="hacker-card bg-black p-6 rounded-lg border border-green-500 transition duration-300 h-full flex flex-col">
-                <div class="mb-4 overflow-hidden rounded-lg">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="Red Team Exercise" 
-                         class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <h3 class="text-xl font-bold mb-2">Enterprise Red Team Exercise</h3>
-                <p class="text-green-300 mb-4">Led a simulated attack against a Fortune 500 company, bypassing security controls and gaining access to sensitive data.</p>
-                <div class="mt-auto">
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">Red Teaming</span>
-                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">Social Engineering</span>
-                        <span class="bg-green-900 text-green-300 px-3 py-1 rounded-full text-sm">Enterprise Security</span>
-                    </div>
-                    <a href="#" class="text-green-500 hover:text-green-300 font-bold flex items-center">
-                        Read Case Study <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="text-center mt-12">
-            <a href="#" class="border border-green-500 hover:bg-green-900 text-green-400 font-bold py-3 px-6 rounded transition inline-flex items-center">
-                <i class="fas fa-folder-open mr-2"></i> View All Projects
-            </a>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section class="bg-gray-900 py-16">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center glow-text">Certifications</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="flex flex-col items-center p-6 border border-green-500 rounded-lg hover:bg-green-900 transition">
-                    <img src="https://www.eccouncil.org/wp-content/uploads/2022/05/CEH-Badge.png" alt="CEH" class="h-24 mb-4">
-                    <h3 class="text-lg font-bold text-center">Certified Ethical Hacker</h3>
-                </div>
-                <div class="flex flex-col items-center p-6 border border-green-500 rounded-lg hover:bg-green-900 transition">
-                    <img src="https://www.offensive-security.com/wp-content/uploads/2019/04/oscp-certified-offensive-security.png" alt="OSCP" class="h-24 mb-4">
-                    <h3 class="text-lg font-bold text-center">OSCP</h3>
-                </div>
-                <div class="flex flex-col items-center p-6 border border-green-500 rounded-lg hover:bg-green-900 transition">
-                    <img src="https://www.comptia.org/images/default-source/ci-mages/comptia-security-ce-certification.png" alt="Security+" class="h-24 mb-4">
-                    <h3 class="text-lg font-bold text-center">CompTIA Security+</h3>
-                </div>
-                <div class="flex flex-col items-center p-6 border border-green-500 rounded-lg hover:bg-green-900 transition">
-                    <img src="https://www.giac.org/img/gpen-certification.png" alt="GPEN" class="h-24 mb-4">
-                    <h3 class="text-lg font-bold text-center">GIAC Penetration Tester</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-   <section id="contact" class="container mx-auto px-6 py-16">
-  <h2 class="text-3xl font-bold mb-12 text-center glow-text">Get In Touch</h2>
-  <div class="max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-      <!-- Contact Info -->
-      <div class="space-y-8">
-        <h3 class="text-xl font-bold mb-4">Contact Information</h3>
-        <div class="space-y-6">
-          <div class="flex items-start space-x-4">
-            <i class="fas fa-envelope text-green-500 mt-1"></i>
-            <div>
-              <h4 class="font-bold">Email</h4>
-              <p class="text-green-300">downsystem289@gmail.com</p>
-            </div>
-          </div>
-          <div class="flex items-start space-x-4">
-            <i class="fas fa-phone-alt text-green-500 mt-1"></i>
-            <div>
-              <h4 class="font-bold">Phone</h4>
-              <p class="text-green-300">+977 9811956228</p>
-            </div>
-          </div>
-          <div class="flex items-start space-x-4">
-            <i class="fas fa-map-marker-alt text-green-500 mt-1"></i>
-            <div>
-              <h4 class="font-bold">Location</h4>
-              <p class="text-green-300">Nawalpur, Nepal</p>
-            </div>
-          </div>
-        </div>
-
-      <h3 class="text-xl font-bold mt-12 mb-4">Follow Me</h3>
-<div class="flex space-x-4">
-  <a href="https://github.com/Prasangam07" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-     class="w-10 h-10 rounded-full border border-green-500 flex items-center justify-center hover:bg-green-900 transition-all duration-300"
-     title="GitHub">
-    <i class="fab fa-github text-lg"></i>
-  </a>
-  <a href="https://www.linkedin.com/in/prasangam-pathak-222a921ab/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-     class="w-10 h-10 rounded-full border border-green-500 flex items-center justify-center hover:bg-green-900 transition-all duration-300"
-     title="LinkedIn">
-    <i class="fab fa-linkedin-in text-lg"></i>
-  </a>
-  <a href="https://x.com/Itsprasangam" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
-     class="w-10 h-10 rounded-full border border-green-500 flex items-center justify-center hover:bg-green-900 transition-all duration-300"
-     title="X (Twitter)">
-    <i class="fab fa-x-twitter text-lg"></i>
-  </a>
-  <a href="https://www.instagram.com/prasangam001/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
-     class="w-10 h-10 rounded-full border border-green-500 flex items-center justify-center hover:bg-green-900 transition-all duration-300"
-     title="Instagram">
-    <i class="fab fa-instagram text-lg"></i>
-  </a>
-</div>
-      <!-- Contact Form -->
-      <form action="https://formsubmit.co/g6740p@gmail.com" method="POST" class="space-y-6 w-full">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://formsubmit.co/thank-you">
-        
-        <div>
-          <label for="name" class="block mb-2">Your Name</label>
-          <input type="text" id="name" name="name" required class="w-full bg-black border border-green-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
-        </div>
-        <div>
-          <label for="email" class="block mb-2">Your Email</label>
-          <input type="email" id="email" name="email" required class="w-full bg-black border border-green-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
-        </div>
-        <div>
-          <label for="subject" class="block mb-2">Subject</label>
-          <input type="text" id="subject" name="subject" required class="w-full bg-black border border-green-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
-        </div>
-        <div>
-          <label for="message" class="block mb-2">Message</label>
-          <textarea id="message" name="message" rows="5" required class="w-full bg-black border border-green-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
-        </div>
-        <button type="submit" class="bg-green-600 hover:bg-green-700 text-black font-bold py-3 px-6 rounded transition w-full">
-          Send Message
-        </button>
-      </form>
+<body>
+    <!-- Dark Mode Toggle -->
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider"></div>
+        </label>
     </div>
-  </div>
-</section>
 
-<!-- Footer -->
-<footer class="bg-gray-900 py-8 border-t border-green-500 mt-20">
-  <div class="container mx-auto px-6">
-    <div class="flex flex-col md:flex-row justify-between items-center">
-      <div class="text-lg font-bold mb-4 md:mb-0 glow-text">root@hacker:~$</div>
-      <div class="text-green-300 text-center md:text-left">
-        &copy; 2023 Ethical Hacker Portfolio. All rights reserved.
-      </div>
-    </div>
-  </div>
-</footer>
+    <!-- Hire Me Button -->
+    <a href="#contact" class="hire-me" title="Hire Me!">Hire</a>
 
-    <!-- Matrix Animation Script -->
+    <header>
+        <div class="container">
+            <div class="profile-container">
+                <!-- Replace the src with your actual photo URL -->
+                <img src="https://scontent.fbhr4-1.fna.fbcdn.net/v/t39.30808-6/505748689_1961656111244765_5895642541975437550_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=WZnAe5WmpzsQ7kNvwFQ5JZy&_nc_oc=AdmjS9Upmkgjd-6gZfruaOs1N3hCYiEwj-YA6Z7HHMup4X_ZTTGsSjGXMS3zNLfpuHzQuFbw1JNwunX2uwJRHr_c&_nc_zt=23&_nc_ht=scontent.fbhr4-1.fna&_nc_gid=aiHPGK7rINQlC_srsHiQaA&oh=00_AfSMZNcugS7q4CAgHAylZKdpIEvtmDCuPzzE6lG2k9DoCw&oe=6873A1B0" alt="Prasangam Pathak" class="profile-pic">
+                <h1>Prasangam Pathak</h1>
+                <p>Ethical Hacker | Penetration Tester | Security Researcher</p>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="card">
+                <p>Security enthusiast specializing in vulnerability assessment, penetration testing, and securing web/API infrastructures. Passionate about identifying weaknesses before attackers do.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Core Skills</h2>
+            <div class="skills-grid">
+                <div class="card">
+                    <h3>🛠️ Tools</h3>
+                    <ul>
+                        <li>Burp Suite</li>
+                        <li>OWASP ZAP</li>
+                        <li>Nmap</li>
+                        <li>Metasploit (MSF)</li>
+                        <li>Postman</li>
+                        <li>mitmproxy</li>
+                        <li>Nikto</li>
+                        <li>WPScan</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🌐 Networking</h3>
+                    <ul>
+                        <li>Security Auditing</li>
+                        <li>Packet Analysis</li>
+                        <li>Firewall/Routing</li>
+                        <li>VPN Configurations</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🐍 Development</h3>
+                    <ul>
+                        <li>Python Scripting</li>
+                        <li>Security Tool Automation</li>
+                        <li>Bash Scripting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2>🏆 Certifications</h2>
+            <div class="certifications">
+                <div class="cert-item">
+                    <h3>Cybersecurity Essentials</h3>
+                    <p>Cisco (Credly)</p>
+                </div>
+                <div class="cert-item">
+                    <h3>Mastering Networking</h3>
+                    <p>W3Cube Tech (YouTube)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>💻 Key Projects</h2>
+            <div class="projects">
+                <div class="project-item">
+                    <h3>Password Encryption Tool</h3>
+                    <p>Secure hashing implementations for password storage.</p>
+                </div>
+                <div class="project-item">
+                    <h3>Network Scanner</h3>
+                    <p>Python-based utility for network reconnaissance.</p>
+                </div>
+                <div class="project-item">
+                    <h3>API Fuzzer</h3>
+                    <p>Automated security testing for API endpoints.</p>
+                </div>
+                <div class="project-item">
+                    <h3>Basic Port Scanner</h3>
+                    <p>Python script to identify open ports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume">
+        <div class="container">
+            <h2>📄 Resume</h2>
+            <div style="text-align: center;">
+                <a href="#" class="btn btn-resume">Download Resume (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>📬 Contact</h2>
+            <div style="text-align: center;">
+                <p>Let's discuss security or collaborate on a project!</p>
+                <div class="contact-links">
+                    <a href="mailto:prasangampathak9@gmail.com" class="btn">Email Me</a>
+                    <a href="https://github.com/Prasangam07" target="_blank" class="btn">GitHub</a>
+                    <a href="#" class="btn">Contact Form</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Prasangam Pathak | Ethical Hacker</p>
+        </div>
+    </footer>
+
     <script>
-        // Matrix background effect
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
-        
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-        
-        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
-        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const nums = '0123456789';
-        const symbols = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
-        
-        const alphabet = katakana + latin + nums + symbols;
-        
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-        
-        const rainDrops = [];
-        
-        for (let x = 0; x < columns; x++) {
-            rainDrops[x] = 1;
-        }
-        
-        const draw = () => {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // Dark Mode Toggle
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
             
-            ctx.fillStyle = '#00FF00';
-            ctx.font = fontSize + 'px monospace';
-            
-            for (let i = 0; i < rainDrops.length; i++) {
-                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
-                
-                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    rainDrops[i] = 0;
-                }
-                rainDrops[i]++;
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
             }
-        };
-        
-        setInterval(draw, 30);
-        
-        // Responsive adjustments
-        window.addEventListener('resize', () => {
-            canvas.width = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
-        
-        // Typewriter effect for terminal cursor
-        const phrases = [
-            "Penetration Tester",
-            "Security Researcher",
-            "Ethical Hacker",
-            "Bug Bounty Hunter"
-        ];
-        let currentPhrase = 0;
-        let currentChar = 0;
-        let isDeleting = false;
-        const terminalText = document.querySelector('.code-typing');
-        
-        function type() {
-            const fullTxt = phrases[currentPhrase];
+
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const sections = document.querySelectorAll('section');
             
-            if (isDeleting) {
-                currentChar--;
-                terminalText.textContent = fullTxt.substring(0, currentChar);
-            } else {
-                currentChar++;
-                terminalText.textContent = fullTxt.substring(0, currentChar);
-            }
-            
-            if (!isDeleting && currentChar === fullTxt.length) {
-                isDeleting = true;
-                setTimeout(type, 1000);
-            } else if (isDeleting && currentChar === 0) {
-                isDeleting = false;
-                currentPhrase = (currentPhrase + 1) % phrases.length;
-                setTimeout(type, 500);
-            } else {
-                setTimeout(type, isDeleting ? 50 : 100);
-            }
-        }
-        
-        // Start the typing effect
-        setTimeout(type, 1000);
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight - 100) {
+                    section.style.opacity = '1';
+                }
+            });
+        };
+
+        // Set initial opacity for animations
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+        });
+
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
     </script>
 </body>
 </html>
